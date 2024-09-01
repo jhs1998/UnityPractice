@@ -676,9 +676,10 @@ MonoBehaviour:
   moveSpeed: 5
   rotateSpeed: 90
   muzzlePoint: {fileID: 1904610929}
-  bullet1: {fileID: 1932290478305684969, guid: ae41877ff36c6d844b37f4406ec2a059, type: 3}
-  bullet2: {fileID: 1932290478305684969, guid: 19d9d07416537d34592fede2249afc96, type: 3}
-  bullet3: {fileID: 1932290478305684969, guid: 17da581ec3a3f6d49aef49742ee3b652, type: 3}
+  bullet1: {fileID: 2033064362}
+  bullet2: {fileID: 2033064362}
+  bullet3: {fileID: 2033064362}
+  butten: 1
 --- !u!114 &2033064360
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -691,7 +692,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34e67c0db201dc74c87bc77eb7381c33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 0}
+  prefab: {fileID: 321183524715438782, guid: 40b8161270fb55c42a0d3d9ddb16ac80, type: 3}
   createOnEmpty: 0
   size: 5
   capacity: 5
@@ -707,7 +708,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34e67c0db201dc74c87bc77eb7381c33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 0}
+  prefab: {fileID: 321183524715438782, guid: 19d9d07416537d34592fede2249afc96, type: 3}
   createOnEmpty: 0
   size: 5
   capacity: 5
@@ -723,7 +724,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34e67c0db201dc74c87bc77eb7381c33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 0}
+  prefab: {fileID: 321183524715438782, guid: ae41877ff36c6d844b37f4406ec2a059, type: 3}
   createOnEmpty: 0
   size: 5
   capacity: 5

@@ -25,7 +25,7 @@
 
 using System.Collections.Generic;
 
-namespace DesignPattern
+namespace DesignPatternobjectPool
 {
     public class ObjectPool
     {

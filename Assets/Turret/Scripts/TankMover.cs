@@ -11,7 +11,7 @@ public class TankMover : MonoBehaviour
     [SerializeField] ObjectPool bullet2;
     [SerializeField] ObjectPool bullet3;
 
-    int butten = 0;
+    public int butten = 1;
     private void Update()
     {
         Move();
@@ -23,14 +23,17 @@ public class TankMover : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             butten = 1;
+            Debug.Log("Åº º¯°æ: Åº 1");
         }
         else if(Input.GetKeyDown(KeyCode.Alpha2))
         {
             butten = 2;
+            Debug.Log("Åº º¯°æ: Åº 2");
         }
         else if(Input.GetKeyDown(KeyCode.Alpha3))
         {
             butten = 3;
+            Debug.Log("Åº º¯°æ: Åº 3");
         }
     }
 
@@ -45,7 +48,9 @@ public class TankMover : MonoBehaviour
 
     private void Fire()
     {
-        if (butten == 0 || butten == 1)
+        Debug.Log("¹ß»ç ½Ãµµ: Åº " + butten);
+
+        if (butten == 1)
         {
             bullet1.GetPool(muzzlePoint.position, muzzlePoint.rotation);
         }
