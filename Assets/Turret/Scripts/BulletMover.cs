@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BulletMover : MonoBehaviour
 {
+    [SerializeField] PooledObject pooledObject;
     [SerializeField] float moveSpeed;
     [SerializeField] float returnTime;
     private float remainTime;
@@ -18,7 +19,7 @@ public class BulletMover : MonoBehaviour
         remainTime -= Time.deltaTime;            
         if (remainTime < 0)
         {
-            Destroy(gameObject);
+            pooledObject.ReturnToPool();
         }
     }
 }

@@ -7,9 +7,9 @@ public class TankMover : MonoBehaviour
     [SerializeField] float moveSpeed;
     [SerializeField] float rotateSpeed;
     [SerializeField] Transform muzzlePoint;
-    [SerializeField] GameObject bullet1;
-    [SerializeField] GameObject bullet2;
-    [SerializeField] GameObject bullet3;
+    [SerializeField] ObjectPool bullet1;
+    [SerializeField] ObjectPool bullet2;
+    [SerializeField] ObjectPool bullet3;
 
     int butten = 0;
     private void Update()
@@ -47,15 +47,15 @@ public class TankMover : MonoBehaviour
     {
         if (butten == 0 || butten == 1)
         {
-            GameObject bulletGameObj = Instantiate(bullet1, muzzlePoint.position, muzzlePoint.rotation);
+            bullet1.GetPool(muzzlePoint.position, muzzlePoint.rotation);
         }
         else if (butten == 2)
         {
-            GameObject bulletGameObj = Instantiate(bullet2, muzzlePoint.position, muzzlePoint.rotation);
+            bullet2.GetPool(muzzlePoint.position, muzzlePoint.rotation);
         }
         else if (butten == 3)
         {
-            GameObject bulletGameObj = Instantiate(bullet3, muzzlePoint.position, muzzlePoint.rotation);
+            bullet3.GetPool(muzzlePoint.position, muzzlePoint.rotation);
         }
     }
 }
