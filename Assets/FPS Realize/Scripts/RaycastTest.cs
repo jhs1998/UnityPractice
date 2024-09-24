@@ -1,7 +1,9 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class RaycastTest : MonoBehaviour
 {
@@ -16,7 +18,11 @@ public class RaycastTest : MonoBehaviour
     [SerializeField] float shutdelay;
     // 탄창 수
     [SerializeField] int ammunition;
+    public TextMeshProUGUI bulletsText;
+
     private int nowammunition;
+   
+    private bool spon = false;
 
     private bool isShooting = false;
 
@@ -25,6 +31,7 @@ public class RaycastTest : MonoBehaviour
         text.SetActive(false);
         monHP = MonHP;
         nowammunition = ammunition;
+        bulletsText.text = nowammunition + "/" + ammunition;
     }
     private void Update()
     {      
@@ -69,7 +76,11 @@ public class RaycastTest : MonoBehaviour
         
         if (monHP == 0)
         {
-            Invoke("Alive", 3f);
+            if (!spon)
+            {
+                spon = true;
+                Invoke("Alive", 3f);
+            }                     
         }
     }
 
@@ -77,8 +88,8 @@ public class RaycastTest : MonoBehaviour
     {
         monHP -= 1;
         nowammunition -= 1;
+        bulletsText.text = nowammunition + "/" + ammunition;
         Debug.Log($"{hit.collider.gameObject.name}를 맞췄다, hp는 {monHP}남았다.");
-        Debug.Log($"남은 탄약수 {nowammunition}");
 
         if (monHP == 0)
         {
@@ -88,7 +99,7 @@ public class RaycastTest : MonoBehaviour
     }
 
     private void Alive()
-    {
+    {         
         Position();
         Mon.SetActive(true);       
         monHP = MonHP;
@@ -98,11 +109,10 @@ public class RaycastTest : MonoBehaviour
     {
         float x;
         float z;
-        // ??? 여기저기 난수값으로 오브젝트가 점멸하다 한자리 고정
         x = UnityEngine.Random.Range(-20.0f, 20.0f);
         z = UnityEngine.Random.Range(-20.0f, 20.0f);
-        // 좌표 값을 뺴서 랜덤으로 뽑아도 똑같은 증상
         MonTransform.position = new Vector3(x, 1.02f, z);
+        spon = false;
     }
 
     private IEnumerator ContinuousShut(RaycastHit hit)
@@ -123,6 +133,7 @@ public class RaycastTest : MonoBehaviour
         Debug.Log($"탄창을 장전중입니다.");
         yield return new WaitForSeconds(2f);
         nowammunition = ammunition;
+        bulletsText.text = nowammunition + "/" + ammunition;
         Debug.Log($"장전완료");
     }
 }
